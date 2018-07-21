@@ -1,0 +1,10 @@
+<launch>
+	<group ns="world_manager">
+    <!--Load the walls for your workspace-->
+    <rosparam command="load" file="$(find reachability_grasping_demo)/configs/fetch22.workspace.yaml"/>
+
+    <node name="world_manager" pkg="world_manager" type="world_manager_server.py" output="screen"/>
+	</group>
+  	<include file="$(find reachability_grasping_demo)/launch/reachability_analyzer.launch"/>
+  	<include file="$(find reachability_grasping_demo)/launch/fetch_demo.launch"/>
+</launch>

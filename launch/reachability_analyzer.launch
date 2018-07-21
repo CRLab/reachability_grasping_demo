@@ -1,0 +1,30 @@
+<launch>
+  <!-- <group ns="reachability"> -->
+    <rosparam>
+       "analyze_grasp_topic": "analyze_grasp_action"
+       "move_group_name": "arm"
+       "end_effector_name": "gripper"
+       "reachability_analyzer/planner_config_name": "[RRTConnectkConfigDefault]"
+       "reachability_analyzer/allowed_planning_time": 20
+       "pre_grasp_goal_point.effort": [50,50]
+       "pre_grasp_goal_point.positions": [0.05, 0.05]
+       "pre_grasp_goal_point.time_from_start.secs": 0
+       "pre_grasp_joint_names": ['l_gripper_finger_joint', 'r_gripper_finger_joint']
+       "grasp_goal_point.effort": [50,50]
+       "grasp_goal_point.time_from_start.secs": 0
+       "moveit_grasp.grasp_posture.joint_names": ['l_gripper_finger_joint', 'r_gripper_finger_joint']
+       "moveit_grasp.pre_grasp_approach.min_distance": 0.05     # min_distance must always be less than desired_distance!
+       "moveit_grasp.pre_grasp_approach.desired_distance": 0.1
+       "moveit_grasp.pre_grasp_approach.direction.header.frame_id": "/wrist_roll_link"
+       "moveit_grasp.post_grasp_retreat.min_distance": 0.05     # min_distance must always be less than desired_distance!
+       "moveit_grasp.post_grasp_retreat.desired_distance": 0.1
+       "moveit_grasp.post_grasp_retreat.direction.header.frame_id": "/base_link"
+       "moveit_grasp.post_grasp_retreat.direction.vector.x": 0
+       "moveit_grasp.post_grasp_retreat.direction.vector.y": 0
+       "moveit_grasp.post_grasp_retreat.direction.vector.z": 1
+       "moveit_grasp.max_contact_force": -1
+    </rosparam>
+
+    <node name="reachability_analyzer" pkg="reachability_analyzer" type="grasp_analyzer_node.py" output="screen"/>
+  <!-- </group> -->
+</launch>

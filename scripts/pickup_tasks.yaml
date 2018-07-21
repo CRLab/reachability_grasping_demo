@@ -1,0 +1,45 @@
+# target objects
+mesh_names: [
+  soft_scrub_2lb_4oz.ply,
+  # gillette_shaving_gel.ply,
+  # pringles_original.ply,
+  # frenchs_classic_yellow_mustard_14oz.ply
+  ]
+
+obstacle_info: [
+  {
+    'file_name': 'table_new.ply',
+    'pose': [0.59, 0, 0.16, 0, 0, 0, 1]
+  },
+  {
+    'file_name': 'can_new.ply',
+    'pose': [0.43, 0.15, 0.60, 0, 0, 0, 1]
+  },
+  {
+    'file_name': 'trash_can_new.ply',
+    'pose': [0.48, -0.12, 0.60, 0, 0, 0, 1]
+  }
+]
+
+num_pre_grasps: 20
+frame_id: "base_link"
+pitch_range: [0.0]
+pregrasp_dof: [4]
+roll_range: [0.0]
+# yaw_range: [0.0, 2.0943951023931953, 4.1887902047863905]
+yaw_range: [0.0]
+z_range: [0.53]
+
+# sample object poses amidst obstacles
+# x_y: [[0.34, 0.1], [0.38, -0.15], [0.5, 0]]
+x_y: [[0.7, 0]]
+
+search_energy_types: ["GUIDED_POTENTIAL_QUALITY_ENERGY", "REACHABLE_FIRST_HYBRID_GRASP_ENERGY"]
+add_obstacle_to_graspit: True
+max_steps: 70000
+planning_step_interval: 5000
+hand_name: "fetch_gripper"
+robot_reachability_package: "fetch_reachability_config"
+graspit_link_name: wrist_roll_link
+moveit_end_effector_name: wrist_roll_link
+approach_direction: [1, 0, 0]

@@ -1,0 +1,14 @@
+walls: 
+  - name: "table"
+    x_thickness: 0.77
+    y_thickness: 0.92
+    z_thickness: 0.67
+    qx: 0 
+    qy: 0
+    qz: 0
+    qw: 1
+    x:  0.785
+    y: 0.0
+    z: 0.335
+    frame_id: world
+ 
